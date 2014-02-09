@@ -5,9 +5,12 @@ import net.therap.domain.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * @author Mushfekur Rahman
+ * @since 09/02/2013
  */
 
 public class UserDaoImpl implements UserDao {
@@ -22,6 +25,7 @@ public class UserDaoImpl implements UserDao {
                 .setParameter("name", name)
                 .setParameter("password", password);
 
-        return query.getResultList().get(0);
+        List<User> userList = query.getResultList();
+        return userList.isEmpty()? null : userList.get(0);
     }
 }
