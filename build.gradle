@@ -1,0 +1,45 @@
+apply plain: 'java'
+
+configurations {
+    sourceSets {
+        main {
+            java {
+                srcDir 'src/main/java'
+            }
+        }
+
+        test{
+            java {
+                srcDir 'src/test/java'
+            }
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+
+    maven {
+        url 'http://artifactory.therapbd.net/artifactory/libs-release'
+    }
+
+    maven {
+        url 'http://artifactory.therapbd.net/artifactory/libs-snapshot'
+    }
+}
+
+dependencies {}
+
+buildscript {
+    repositories {
+        mavenLocal()
+
+        maven {
+            url 'http://artifactory.therapbd.net/artifactory/libs-release'
+        }
+
+        maven {
+            url 'http://artifactory.therapbd.net/artifactory/libs-snapshot'
+        }
+    }
+}

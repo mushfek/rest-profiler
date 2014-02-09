@@ -1,6 +1,19 @@
+# class files #
 *.class
 
 # Package Files #
 *.jar
 *.war
 *.ear
+
+# directories #
+target
+
+# anything that starts with . #
+.idea
+
+# but not .gitignore itself #
+!.gitignore
+
+# idea .iml file #
+*.iml
