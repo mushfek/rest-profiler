@@ -1,4 +1,4 @@
-rest-profiler
+RESTProfiler
 =============
 
-A Simple Profile Selector App Using Spring RESTful Webservices
+A Profile Selector App Using Spring RESTful Webservices

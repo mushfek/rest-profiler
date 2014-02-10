@@ -23,6 +23,9 @@ public class UserInfo implements Serializable {
     @Column(name = "address", nullable = false)
     private String address;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private User user;
+
     public Long getId() {
         return id;
     }
@@ -45,6 +48,14 @@ public class UserInfo implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

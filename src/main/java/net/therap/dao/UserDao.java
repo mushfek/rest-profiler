@@ -8,5 +8,5 @@ import net.therap.domain.User;
  */
 
 public interface UserDao {
-    User getUser(String name, String password);
+    public User getUser(String name);
 }

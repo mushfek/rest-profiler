@@ -2,6 +2,7 @@ package net.therap.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author Mushfekur Rahman
@@ -20,11 +21,11 @@ public class User implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "current_mail", nullable = false)
+    private String currentMail;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private UserInfo userInfo;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserInfo> userInfoList;
 
     public Long getId() {
         return id;
@@ -42,20 +43,20 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getCurrentMail() {
+        return currentMail;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setCurrentMail(String currentMail) {
+        this.currentMail = currentMail;
     }
 
-    public UserInfo getUserInfo() {
-        return userInfo;
+    public List<UserInfo> getUserInfoList() {
+        return userInfoList;
     }
 
-    public void setUserInfo(UserInfo userInfo) {
-        this.userInfo = userInfo;
+    public void setUserInfoList(List<UserInfo> userInfoList) {
+        this.userInfoList = userInfoList;
     }
 
     @Override
