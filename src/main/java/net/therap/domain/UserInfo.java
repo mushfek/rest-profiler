@@ -23,7 +23,7 @@ public class UserInfo implements Serializable {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private User user;
 
     public Long getId() {
